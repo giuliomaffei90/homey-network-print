@@ -1,0 +1,866 @@
+{
+  "id": "it.giuliomaffei.networkprint",
+  "version": "1.2.0",
+  "sdk": 3,
+  "compatibility": ">=12.1.0",
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "Network Print",
+    "nl": "Network Print",
+    "de": "Network Print",
+    "fr": "Network Print",
+    "it": "Network Print",
+    "sv": "Network Print",
+    "no": "Network Print",
+    "es": "Network Print",
+    "da": "Network Print",
+    "ru": "Network Print",
+    "pl": "Network Print",
+    "ko": "Network Print",
+    "ar": "Network Print"
+  },
+  "description": {
+    "en": "Print text and images directly to your network printer",
+    "nl": "Print tekst en afbeeldingen rechtstreeks naar je netwerkprinter",
+    "de": "Drucke Text und Bilder direkt auf deinem Netzwerkdrucker",
+    "fr": "Imprimez du texte et des images directement sur votre imprimante réseau",
+    "it": "Stampa testo e immagini direttamente sulla stampante di rete",
+    "sv": "Skriv ut text och bilder direkt på din nätverksskrivare",
+    "no": "Skriv ut tekst og bilder direkte til nettverksskriveren din",
+    "es": "Imprime texto e imágenes directamente en tu impresora de red",
+    "da": "Udskriv tekst og billeder direkte på din netværksprinter",
+    "ru": "Печать текста и изображений прямо на сетевой принтер",
+    "pl": "Drukuj tekst i obrazy bezpośrednio na drukarce sieciowej",
+    "ko": "내 네트워크 프린터로 텍스트와 이미지를 바로 인쇄하세요",
+    "ar": "اطبع النصوص والصور مباشرة على طابعة الشبكة الخاصة بك"
+  },
+  "category": [
+    "appliances"
+  ],
+  "brandColor": "#2563EB",
+  "author": {
+    "name": "Giulio Maffei"
+  },
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png"
+  },
+  "flow": {
+    "actions": [
+      {
+        "id": "print_text",
+        "title": {
+          "en": "Print text",
+          "nl": "Print tekst",
+          "de": "Text drucken",
+          "fr": "Imprimer du texte",
+          "it": "Stampa testo",
+          "sv": "Skriv ut text",
+          "no": "Skriv ut tekst",
+          "es": "Imprimir texto",
+          "da": "Udskriv tekst",
+          "ru": "Напечатать текст",
+          "pl": "Drukuj tekst",
+          "ko": "텍스트 인쇄",
+          "ar": "طباعة نص"
+        },
+        "titleFormatted": {
+          "en": "Print [[text]]",
+          "nl": "Print [[text]]",
+          "de": "[[text]] drucken",
+          "fr": "Imprimer [[text]]",
+          "it": "Stampa [[text]]",
+          "sv": "Skriv ut [[text]]",
+          "no": "Skriv ut [[text]]",
+          "es": "Imprimir [[text]]",
+          "da": "Udskriv [[text]]",
+          "ru": "Напечатать [[text]]",
+          "pl": "Drukuj [[text]]",
+          "ko": "[[text]] 인쇄",
+          "ar": "طباعة [[text]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=printer"
+          },
+          {
+            "name": "text",
+            "type": "text",
+            "title": {
+              "en": "Text",
+              "nl": "Tekst",
+              "de": "Text",
+              "fr": "Texte",
+              "it": "Testo",
+              "sv": "Text",
+              "no": "Tekst",
+              "es": "Texto",
+              "da": "Tekst",
+              "ru": "Текст",
+              "pl": "Tekst",
+              "ko": "텍스트",
+              "ar": "النص"
+            }
+          }
+        ]
+      },
+      {
+        "id": "print_image_url",
+        "title": {
+          "en": "Print an image from a URL",
+          "nl": "Print een afbeelding vanaf een URL",
+          "de": "Bild von einer URL drucken",
+          "fr": "Imprimer une image depuis une URL",
+          "it": "Stampa un’immagine da URL",
+          "sv": "Skriv ut en bild från en URL",
+          "no": "Skriv ut et bilde fra en URL",
+          "es": "Imprimir una imagen desde una URL",
+          "da": "Udskriv et billede fra en URL",
+          "ru": "Напечатать изображение по URL",
+          "pl": "Drukuj obraz z adresu URL",
+          "ko": "URL에서 이미지 인쇄",
+          "ar": "طباعة صورة من رابط"
+        },
+        "titleFormatted": {
+          "en": "Print image from [[url]]",
+          "nl": "Print afbeelding van [[url]]",
+          "de": "Bild von [[url]] drucken",
+          "fr": "Imprimer l’image depuis [[url]]",
+          "it": "Stampa immagine da [[url]]",
+          "sv": "Skriv ut bild från [[url]]",
+          "no": "Skriv ut bilde fra [[url]]",
+          "es": "Imprimir imagen desde [[url]]",
+          "da": "Udskriv billede fra [[url]]",
+          "ru": "Напечатать изображение из [[url]]",
+          "pl": "Drukuj obraz z [[url]]",
+          "ko": "[[url]]에서 이미지 인쇄",
+          "ar": "طباعة صورة من [[url]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=printer"
+          },
+          {
+            "name": "url",
+            "type": "text",
+            "title": {
+              "en": "JPEG or PNG URL",
+              "nl": "JPEG- of PNG-URL",
+              "de": "JPEG- oder PNG-URL",
+              "fr": "URL JPEG ou PNG",
+              "it": "URL JPEG o PNG",
+              "sv": "URL till JPEG eller PNG",
+              "no": "URL til JPEG eller PNG",
+              "es": "URL de JPEG o PNG",
+              "da": "URL til JPEG eller PNG",
+              "ru": "URL JPEG или PNG",
+              "pl": "Adres URL pliku JPEG lub PNG",
+              "ko": "JPEG 또는 PNG URL",
+              "ar": "رابط JPEG أو PNG"
+            }
+          }
+        ]
+      },
+      {
+        "id": "print_image_token",
+        "title": {
+          "en": "Print an image tag",
+          "nl": "Print een afbeeldingstag",
+          "de": "Bild-Tag drucken",
+          "fr": "Imprimer un tag d’image",
+          "it": "Stampa un tag immagine",
+          "sv": "Skriv ut en bildtagg",
+          "no": "Skriv ut en bildetagg",
+          "es": "Imprimir un tag de imagen",
+          "da": "Udskriv et billedtag",
+          "ru": "Напечатать тег изображения",
+          "pl": "Drukuj tag obrazu",
+          "ko": "이미지 태그 인쇄",
+          "ar": "طباعة وسم صورة"
+        },
+        "titleFormatted": {
+          "en": "Print [[droptoken]]",
+          "nl": "Print [[droptoken]]",
+          "de": "[[droptoken]] drucken",
+          "fr": "Imprimer [[droptoken]]",
+          "it": "Stampa [[droptoken]]",
+          "sv": "Skriv ut [[droptoken]]",
+          "no": "Skriv ut [[droptoken]]",
+          "es": "Imprimir [[droptoken]]",
+          "da": "Udskriv [[droptoken]]",
+          "ru": "Напечатать [[droptoken]]",
+          "pl": "Drukuj [[droptoken]]",
+          "ko": "[[droptoken]] 인쇄",
+          "ar": "طباعة [[droptoken]]"
+        },
+        "droptoken": [
+          "image"
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=printer"
+          }
+        ]
+      },
+      {
+        "id": "print_library_image",
+        "title": {
+          "en": "Print an image from the library",
+          "nl": "Print een afbeelding uit de bibliotheek",
+          "de": "Bild aus der Bibliothek drucken",
+          "fr": "Imprimer une image de la bibliothèque",
+          "it": "Stampa un’immagine dalla libreria",
+          "sv": "Skriv ut en bild från biblioteket",
+          "no": "Skriv ut et bilde fra biblioteket",
+          "es": "Imprimir una imagen de la biblioteca",
+          "da": "Udskriv et billede fra biblioteket",
+          "ru": "Напечатать изображение из библиотеки",
+          "pl": "Drukuj obraz z biblioteki",
+          "ko": "라이브러리의 이미지 인쇄",
+          "ar": "طباعة صورة من المكتبة"
+        },
+        "titleFormatted": {
+          "en": "Print [[image]] from the library",
+          "nl": "Print [[image]] uit de bibliotheek",
+          "de": "[[image]] aus der Bibliothek drucken",
+          "fr": "Imprimer [[image]] depuis la bibliothèque",
+          "it": "Stampa [[image]] dalla libreria",
+          "sv": "Skriv ut [[image]] från biblioteket",
+          "no": "Skriv ut [[image]] fra biblioteket",
+          "es": "Imprimir [[image]] de la biblioteca",
+          "da": "Udskriv [[image]] fra biblioteket",
+          "ru": "Напечатать [[image]] из библиотеки",
+          "pl": "Drukuj [[image]] z biblioteki",
+          "ko": "라이브러리의 [[image]] 인쇄",
+          "ar": "طباعة [[image]] من المكتبة"
+        },
+        "hint": {
+          "en": "Upload images in Network Print app settings first.",
+          "nl": "Upload eerst afbeeldingen in de instellingen van de Network Print-app.",
+          "de": "Lade zuerst Bilder in den Einstellungen der Network Print-App hoch.",
+          "fr": "Importez d’abord les images dans les paramètres de l’app Network Print.",
+          "it": "Carica prima le immagini nelle impostazioni di Network Print.",
+          "sv": "Ladda först upp bilder i appinställningarna för Network Print.",
+          "no": "Last først opp bilder i appinnstillingene for Network Print.",
+          "es": "Primero sube las imágenes en los ajustes de la app Network Print.",
+          "da": "Upload først billeder i appindstillingerne for Network Print.",
+          "ru": "Сначала загрузите изображения в настройках приложения Network Print.",
+          "pl": "Najpierw prześlij obrazy w ustawieniach aplikacji Network Print.",
+          "ko": "먼저 Network Print 앱 설정에서 이미지를 업로드하세요.",
+          "ar": "ارفع الصور أولًا من إعدادات تطبيق Network Print."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=printer"
+          },
+          {
+            "type": "autocomplete",
+            "name": "image",
+            "title": {
+              "en": "Library image",
+              "nl": "Bibliotheekafbeelding",
+              "de": "Bibliotheksbild",
+              "fr": "Image de la bibliothèque",
+              "it": "Immagine della libreria",
+              "sv": "Bild från biblioteket",
+              "no": "Bilde fra biblioteket",
+              "es": "Imagen de la biblioteca",
+              "da": "Billede fra biblioteket",
+              "ru": "Изображение из библиотеки",
+              "pl": "Obraz z biblioteki",
+              "ko": "라이브러리 이미지",
+              "ar": "صورة من المكتبة"
+            },
+            "placeholder": {
+              "en": "Find an image…",
+              "nl": "Zoek een afbeelding…",
+              "de": "Bild suchen…",
+              "fr": "Rechercher une image…",
+              "it": "Cerca un’immagine…",
+              "sv": "Hitta en bild…",
+              "no": "Finn et bilde…",
+              "es": "Buscar una imagen…",
+              "da": "Find et billede…",
+              "ru": "Найти изображение…",
+              "pl": "Znajdź obraz…",
+              "ko": "이미지 찾기…",
+              "ar": "ابحث عن صورة…"
+            }
+          }
+        ]
+      }
+    ],
+    "conditions": [
+      {
+        "id": "printer_ready",
+        "title": {
+          "en": "The printer is ready",
+          "nl": "De printer is gereed",
+          "de": "Der Drucker ist bereit",
+          "fr": "L’imprimante est prête",
+          "it": "La stampante è pronta",
+          "sv": "Skrivaren är redo",
+          "no": "Skriveren er klar",
+          "es": "La impresora está lista",
+          "da": "Printeren er klar",
+          "ru": "Принтер готов",
+          "pl": "Drukarka jest gotowa",
+          "ko": "프린터가 준비되어 있음",
+          "ar": "الطابعة جاهزة"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=printer"
+          }
+        ]
+      }
+    ]
+  },
+  "capabilities": {
+    "printer_status": {
+      "type": "enum",
+      "title": {
+        "en": "Printer status",
+        "nl": "Printerstatus",
+        "de": "Druckerstatus",
+        "fr": "État de l’imprimante",
+        "it": "Stato stampante",
+        "sv": "Skrivarstatus",
+        "no": "Skriverstatus",
+        "es": "Estado de la impresora",
+        "da": "Printerstatus",
+        "ru": "Состояние принтера",
+        "pl": "Stan drukarki",
+        "ko": "프린터 상태",
+        "ar": "حالة الطابعة"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "values": [
+        {
+          "id": "ready",
+          "title": {
+            "en": "Ready",
+            "nl": "Gereed",
+            "de": "Bereit",
+            "fr": "Prête",
+            "it": "Pronta",
+            "sv": "Redo",
+            "no": "Klar",
+            "es": "Lista",
+            "da": "Klar",
+            "ru": "Готов",
+            "pl": "Gotowa",
+            "ko": "준비됨",
+            "ar": "جاهزة"
+          }
+        },
+        {
+          "id": "printing",
+          "title": {
+            "en": "Printing",
+            "nl": "Bezig met printen",
+            "de": "Druckt",
+            "fr": "Impression en cours",
+            "it": "In stampa",
+            "sv": "Skriver ut",
+            "no": "Skriver ut",
+            "es": "Imprimiendo",
+            "da": "Udskriver",
+            "ru": "Печать",
+            "pl": "Drukowanie",
+            "ko": "인쇄 중",
+            "ar": "قيد الطباعة"
+          }
+        },
+        {
+          "id": "stopped",
+          "title": {
+            "en": "Check printer",
+            "nl": "Controleer printer",
+            "de": "Drucker prüfen",
+            "fr": "Vérifier l’imprimante",
+            "it": "Controlla stampante",
+            "sv": "Kontrollera skrivaren",
+            "no": "Sjekk skriveren",
+            "es": "Revisar impresora",
+            "da": "Tjek printeren",
+            "ru": "Проверьте принтер",
+            "pl": "Sprawdź drukarkę",
+            "ko": "프린터 확인",
+            "ar": "تحقق من الطابعة"
+          }
+        }
+      ]
+    }
+  },
+  "discovery": {
+    "ipp": {
+      "type": "mdns-sd",
+      "mdns-sd": {
+        "name": "ipp",
+        "protocol": "tcp"
+      },
+      "id": "{{name}}"
+    },
+    "ipps": {
+      "type": "mdns-sd",
+      "mdns-sd": {
+        "name": "ipps",
+        "protocol": "tcp"
+      },
+      "id": "{{name}}"
+    }
+  },
+  "drivers": [
+    {
+      "id": "printer",
+      "name": {
+        "en": "Network printer",
+        "nl": "Netwerkprinter",
+        "de": "Netzwerkdrucker",
+        "fr": "Imprimante réseau",
+        "it": "Stampante di rete",
+        "sv": "Nätverksskrivare",
+        "no": "Nettverksskriver",
+        "es": "Impresora de red",
+        "da": "Netværksprinter",
+        "ru": "Сетевой принтер",
+        "pl": "Drukarka sieciowa",
+        "ko": "네트워크 프린터",
+        "ar": "طابعة شبكة"
+      },
+      "class": "other",
+      "capabilities": [
+        "printer_status"
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "images": {
+        "small": "/drivers/printer/assets/images/small.png",
+        "large": "/drivers/printer/assets/images/large.png"
+      },
+      "pair": [
+        {
+          "id": "connect"
+        }
+      ],
+      "settings": [
+        {
+          "id": "uri",
+          "type": "text",
+          "label": {
+            "en": "Printer address",
+            "nl": "Printeradres",
+            "de": "Druckeradresse",
+            "fr": "Adresse de l’imprimante",
+            "it": "Indirizzo stampante",
+            "sv": "Skrivaradress",
+            "no": "Skriveradresse",
+            "es": "Dirección de la impresora",
+            "da": "Printeradresse",
+            "ru": "Адрес принтера",
+            "pl": "Adres drukarki",
+            "ko": "프린터 주소",
+            "ar": "عنوان الطابعة"
+          },
+          "value": "ipp://192.168.1.100:631/ipp/print"
+        },
+        {
+          "id": "allow_self_signed",
+          "type": "checkbox",
+          "label": {
+            "en": "Allow a self-signed printer certificate",
+            "nl": "Zelfondertekend printercertificaat toestaan",
+            "de": "Selbstsigniertes Druckerzertifikat zulassen",
+            "fr": "Autoriser un certificat auto-signé de l’imprimante",
+            "it": "Accetta certificato autofirmato della stampante",
+            "sv": "Tillåt självsignerat skrivarcertifikat",
+            "no": "Tillat selvsignert skriversertifikat",
+            "es": "Permitir un certificado autofirmado de la impresora",
+            "da": "Tillad selvsigneret printercertifikat",
+            "ru": "Разрешить самоподписанный сертификат принтера",
+            "pl": "Zezwól na certyfikat drukarki z podpisem własnym",
+            "ko": "자체 서명 프린터 인증서 허용",
+            "ar": "السماح بشهادة طابعة موقّعة ذاتيًا"
+          },
+          "value": false,
+          "hint": {
+            "en": "For trusted local printers only. HTTPS image downloads always verify certificates.",
+            "nl": "Alleen voor vertrouwde lokale printers. Bij HTTPS-downloads van afbeeldingen worden certificaten altijd gecontroleerd.",
+            "de": "Nur für vertrauenswürdige lokale Drucker. Bei HTTPS-Bilddownloads werden Zertifikate immer überprüft.",
+            "fr": "Uniquement pour les imprimantes locales de confiance. Les téléchargements d’images en HTTPS vérifient toujours les certificats.",
+            "it": "Solo per stampanti locali fidate. I download HTTPS delle immagini verificano sempre i certificati.",
+            "sv": "Endast för betrodda lokala skrivare. HTTPS-nedladdningar av bilder verifierar alltid certifikat.",
+            "no": "Kun for pålitelige lokale skrivere. HTTPS-nedlastinger av bilder verifiserer alltid sertifikater.",
+            "es": "Solo para impresoras locales de confianza. Las descargas de imágenes por HTTPS siempre verifican los certificados.",
+            "da": "Kun til betroede lokale printere. HTTPS-downloads af billeder verificerer altid certifikater.",
+            "ru": "Только для доверенных локальных принтеров. При загрузке изображений по HTTPS сертификаты всегда проверяются.",
+            "pl": "Tylko dla zaufanych drukarek lokalnych. Podczas pobierania obrazów przez HTTPS certyfikaty są zawsze weryfikowane.",
+            "ko": "신뢰하는 로컬 프린터에만 사용하세요. 이미지의 HTTPS 다운로드는 항상 인증서를 확인해요.",
+            "ar": "للطابعات المحلية الموثوقة فقط. تتحقق تنزيلات الصور عبر HTTPS من الشهادات دائمًا."
+          }
+        },
+        {
+          "id": "paper",
+          "type": "dropdown",
+          "label": {
+            "en": "Paper size",
+            "nl": "Papierformaat",
+            "de": "Papierformat",
+            "fr": "Format de papier",
+            "it": "Formato carta",
+            "sv": "Pappersstorlek",
+            "no": "Papirstørrelse",
+            "es": "Tamaño de papel",
+            "da": "Papirstørrelse",
+            "ru": "Размер бумаги",
+            "pl": "Rozmiar papieru",
+            "ko": "용지 크기",
+            "ar": "حجم الورق"
+          },
+          "value": "iso_a4_210x297mm",
+          "values": [
+            {
+              "id": "iso_a4_210x297mm",
+              "label": {
+                "en": "A4",
+                "nl": "A4",
+                "de": "A4",
+                "fr": "A4",
+                "it": "A4",
+                "sv": "A4",
+                "no": "A4",
+                "es": "A4",
+                "da": "A4",
+                "ru": "A4",
+                "pl": "A4",
+                "ko": "A4",
+                "ar": "A4"
+              }
+            },
+            {
+              "id": "iso_a3_297x420mm",
+              "label": {
+                "en": "A3",
+                "nl": "A3",
+                "de": "A3",
+                "fr": "A3",
+                "it": "A3",
+                "sv": "A3",
+                "no": "A3",
+                "es": "A3",
+                "da": "A3",
+                "ru": "A3",
+                "pl": "A3",
+                "ko": "A3",
+                "ar": "A3"
+              }
+            },
+            {
+              "id": "iso_a5_148x210mm",
+              "label": {
+                "en": "A5",
+                "nl": "A5",
+                "de": "A5",
+                "fr": "A5",
+                "it": "A5",
+                "sv": "A5",
+                "no": "A5",
+                "es": "A5",
+                "da": "A5",
+                "ru": "A5",
+                "pl": "A5",
+                "ko": "A5",
+                "ar": "A5"
+              }
+            },
+            {
+              "id": "na_letter_8.5x11in",
+              "label": {
+                "en": "Letter",
+                "nl": "Letter",
+                "de": "Letter",
+                "fr": "Letter",
+                "it": "Letter",
+                "sv": "Letter",
+                "no": "Letter",
+                "es": "Letter",
+                "da": "Letter",
+                "ru": "Letter",
+                "pl": "Letter",
+                "ko": "Letter",
+                "ar": "Letter"
+              }
+            },
+            {
+              "id": "na_index-4x6_4x6in",
+              "label": {
+                "en": "10 × 15 cm (4 × 6 in)",
+                "nl": "10 × 15 cm (4 × 6 in)",
+                "de": "10 × 15 cm (4 × 6 in)",
+                "fr": "10 × 15 cm (4 × 6 in)",
+                "it": "10 × 15 cm (4 × 6 in)",
+                "sv": "10 × 15 cm (4 × 6 in)",
+                "no": "10 × 15 cm (4 × 6 in)",
+                "es": "10 × 15 cm (4 × 6 in)",
+                "da": "10 × 15 cm (4 × 6 in)",
+                "ru": "10 × 15 см (4 × 6 дюймов)",
+                "pl": "10 × 15 cm (4 × 6 cali)",
+                "ko": "10 × 15 cm (4 × 6 in)",
+                "ar": "10 × 15 سم (4 × 6 بوصة)"
+              }
+            }
+          ]
+        },
+        {
+          "id": "color",
+          "type": "dropdown",
+          "label": {
+            "en": "Colour",
+            "nl": "Kleur",
+            "de": "Farbe",
+            "fr": "Couleur",
+            "it": "Colore",
+            "sv": "Färg",
+            "no": "Farge",
+            "es": "Color",
+            "da": "Farve",
+            "ru": "Цвет",
+            "pl": "Kolor",
+            "ko": "색상",
+            "ar": "اللون"
+          },
+          "value": "auto",
+          "values": [
+            {
+              "id": "auto",
+              "label": {
+                "en": "Printer default",
+                "nl": "Standaard van printer",
+                "de": "Druckerstandard",
+                "fr": "Par défaut de l’imprimante",
+                "it": "Predefinito stampante",
+                "sv": "Skrivarens standard",
+                "no": "Skriverens standard",
+                "es": "Predeterminado de la impresora",
+                "da": "Printerens standard",
+                "ru": "По умолчанию принтера",
+                "pl": "Domyślne drukarki",
+                "ko": "프린터 기본값",
+                "ar": "الافتراضي للطابعة"
+              }
+            },
+            {
+              "id": "color",
+              "label": {
+                "en": "Colour",
+                "nl": "Kleur",
+                "de": "Farbe",
+                "fr": "Couleur",
+                "it": "Colore",
+                "sv": "Färg",
+                "no": "Farge",
+                "es": "Color",
+                "da": "Farve",
+                "ru": "Цветная",
+                "pl": "Kolor",
+                "ko": "색상",
+                "ar": "ملوّن"
+              }
+            },
+            {
+              "id": "monochrome",
+              "label": {
+                "en": "Black and white",
+                "nl": "Zwart-wit",
+                "de": "Schwarzweiß",
+                "fr": "Noir et blanc",
+                "it": "Bianco e nero",
+                "sv": "Svartvitt",
+                "no": "Svart-hvitt",
+                "es": "Blanco y negro",
+                "da": "Sort/hvid",
+                "ru": "Чёрно-белая",
+                "pl": "Czarno-biały",
+                "ko": "흑백",
+                "ar": "أبيض وأسود"
+              }
+            }
+          ]
+        },
+        {
+          "id": "scaling",
+          "type": "dropdown",
+          "label": {
+            "en": "Image scaling",
+            "nl": "Afbeeldingsschaling",
+            "de": "Bildskalierung",
+            "fr": "Mise à l’échelle des images",
+            "it": "Adattamento immagini",
+            "sv": "Bildskalning",
+            "no": "Bildeskalering",
+            "es": "Ajuste de imágenes",
+            "da": "Billedskalering",
+            "ru": "Масштабирование изображения",
+            "pl": "Skalowanie obrazu",
+            "ko": "이미지 크기 조정",
+            "ar": "تحجيم الصورة"
+          },
+          "value": "auto",
+          "values": [
+            {
+              "id": "auto",
+              "label": {
+                "en": "Printer default",
+                "nl": "Standaard van printer",
+                "de": "Druckerstandard",
+                "fr": "Par défaut de l’imprimante",
+                "it": "Predefinito stampante",
+                "sv": "Skrivarens standard",
+                "no": "Skriverens standard",
+                "es": "Predeterminado de la impresora",
+                "da": "Printerens standard",
+                "ru": "По умолчанию принтера",
+                "pl": "Domyślne drukarki",
+                "ko": "프린터 기본값",
+                "ar": "الافتراضي للطابعة"
+              }
+            },
+            {
+              "id": "fit",
+              "label": {
+                "en": "Fit entire image",
+                "nl": "Hele afbeelding passend maken",
+                "de": "Ganzes Bild einpassen",
+                "fr": "Image entière",
+                "it": "Immagine intera",
+                "sv": "Anpassa hela bilden",
+                "no": "Tilpass hele bildet",
+                "es": "Imagen completa",
+                "da": "Tilpas hele billedet",
+                "ru": "Вписать целиком",
+                "pl": "Dopasuj cały obraz",
+                "ko": "이미지 전체 맞춤",
+                "ar": "احتواء الصورة كاملة"
+              }
+            },
+            {
+              "id": "fill",
+              "label": {
+                "en": "Fill page (crop edges)",
+                "nl": "Pagina vullen (randen bijsnijden)",
+                "de": "Seite füllen (Ränder beschneiden)",
+                "fr": "Remplir la page (rogner les bords)",
+                "it": "Riempi pagina (ritaglia bordi)",
+                "sv": "Fyll sidan (beskär kanter)",
+                "no": "Fyll siden (beskjær kanter)",
+                "es": "Rellenar página (recortar bordes)",
+                "da": "Udfyld siden (beskær kanter)",
+                "ru": "Заполнить страницу (обрезать края)",
+                "pl": "Wypełnij stronę (przytnij krawędzie)",
+                "ko": "페이지 채우기(가장자리 잘림)",
+                "ar": "ملء الصفحة (قص الحواف)"
+              }
+            }
+          ]
+        },
+        {
+          "id": "font_size",
+          "type": "number",
+          "label": {
+            "en": "Text size (pt)",
+            "nl": "Tekstgrootte (pt)",
+            "de": "Textgröße (pt)",
+            "fr": "Taille du texte (pt)",
+            "it": "Dimensione testo (pt)",
+            "sv": "Textstorlek (pt)",
+            "no": "Tekststørrelse (pt)",
+            "es": "Tamaño del texto (pt)",
+            "da": "Tekststørrelse (pt)",
+            "ru": "Размер текста (pt)",
+            "pl": "Rozmiar tekstu (pt)",
+            "ko": "텍스트 크기(pt)",
+            "ar": "حجم النص (نقطة)"
+          },
+          "value": 12,
+          "min": 8,
+          "max": 36,
+          "step": 1
+        }
+      ]
+    }
+  ],
+  "api": {
+    "getPrinters": {
+      "method": "GET",
+      "path": "/printers"
+    },
+    "probe": {
+      "method": "POST",
+      "path": "/probe"
+    },
+    "printText": {
+      "method": "POST",
+      "path": "/print/text"
+    },
+    "printImage": {
+      "method": "POST",
+      "path": "/print/image"
+    },
+    "getLibrary": {
+      "method": "GET",
+      "path": "/library"
+    },
+    "getLibraryImage": {
+      "method": "GET",
+      "path": "/library/:id/image"
+    },
+    "getLibraryThumbnail": {
+      "method": "GET",
+      "path": "/library/:id/thumbnail"
+    },
+    "renameLibraryImage": {
+      "method": "PUT",
+      "path": "/library/:id"
+    },
+    "removeLibraryImage": {
+      "method": "DELETE",
+      "path": "/library/:id"
+    },
+    "startLibraryUpload": {
+      "method": "POST",
+      "path": "/library-upload"
+    },
+    "appendLibraryUpload": {
+      "method": "POST",
+      "path": "/library-upload/:id/chunk"
+    },
+    "finishLibraryUpload": {
+      "method": "POST",
+      "path": "/library-upload/:id/finish"
+    },
+    "cancelLibraryUpload": {
+      "method": "DELETE",
+      "path": "/library-upload/:id"
+    }
+  }
+}

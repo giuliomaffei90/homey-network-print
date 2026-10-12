@@ -1,0 +1,25 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Network Print</title><script src="/homey.js" data-origin="settings"></script><link rel="stylesheet" href="style.css">
+</head><body style="margin:0;background:#fff"><main id="np-settings" class="np">
+<header class="np-brand"><img src="../assets/brand.svg" alt=""><div><h1>Network Print</h1><p data-i18n="settings.tagline"></p></div></header>
+<div class="np-tabs" role="tablist" data-i18n-aria-label="settings.sections"><button type="button" role="tab" aria-selected="true" aria-controls="library-panel" id="tab-library" data-i18n="settings.tab_library"></button><button type="button" role="tab" aria-selected="false" aria-controls="print-panel" id="tab-print" data-i18n="settings.tab_print"></button></div>
+<div id="message" class="np-message" role="status" aria-live="polite"></div>
+<section id="library-panel" role="tabpanel" aria-labelledby="tab-library">
+  <div class="np-row"><div><h2 style="margin-bottom:3px!important" data-i18n="settings.saved_images"></h2><span id="usage" class="np-usage" data-i18n="settings.loading_library"></span></div><button type="button" class="primary" id="add-images" data-i18n="settings.add"></button></div>
+  <div class="np-storage" aria-hidden="true"><span id="storage-bar"></span></div>
+  <input type="file" id="library-files" accept="image/jpeg,image/png" multiple hidden>
+  <div id="library-empty" class="np-empty" hidden><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="6" y="8" width="36" height="32" rx="6"/><circle cx="32" cy="18" r="4"/><path d="m7 33 11-12 12 12 6-6 5 6"/></svg><h2 data-i18n="settings.empty_title"></h2><p data-i18n="settings.empty_text"></p></div>
+  <div id="library-grid" class="np-grid"></div>
+  <div class="np-flow-guide"><strong data-i18n="settings.flow_title"></strong><ol><li data-i18n-html="settings.flow_step1"></li><li data-i18n-html="settings.flow_step2"></li><li data-i18n="settings.flow_step3"></li></ol></div>
+  <p class="np-note" data-i18n="settings.persist_note"></p>
+  <details><summary data-i18n="settings.backup_title"></summary><p class="np-note" data-i18n="settings.backup_note"></p><div class="np-backup-buttons"><button type="button" id="export-library" data-i18n="settings.export"></button><button type="button" id="import-library" data-i18n="settings.import_backup"></button></div><input type="file" id="backup-file" accept="application/json,.json" hidden></details>
+</section>
+<section id="print-panel" role="tabpanel" aria-labelledby="tab-print" hidden>
+  <div class="np-card"><div class="np-row"><h2 data-i18n="settings.printer"></h2><button type="button" id="refresh" data-i18n="settings.refresh"></button></div><label for="printer" data-i18n="settings.send_to"></label><select id="printer"></select><p id="printer-status" class="np-note"></p></div>
+  <div class="np-card"><h2 data-i18n="settings.text"></h2><label for="text" data-i18n="settings.text_label"></label><textarea id="text" maxlength="30000" data-i18n-placeholder="settings.text_placeholder"></textarea><button type="button" class="primary np-wide" id="print-text" data-i18n="settings.print_text"></button></div>
+  <div class="np-card"><h2 data-i18n="settings.image"></h2><label for="file" class="np-file-label" data-i18n="settings.choose_file"></label><input id="file" type="file" accept="image/jpeg,image/png" hidden><p id="file-name" class="np-note"></p><img id="preview" class="np-preview" data-i18n-alt="settings.preview_alt" alt="" hidden><label for="url" data-i18n="settings.url_label"></label><input id="url" type="url" data-i18n-placeholder="settings.url_placeholder"><button type="button" class="primary np-wide" id="print-image" data-i18n="settings.print_image"></button></div>
+  <p class="np-note" data-i18n="settings.print_note"></p>
+</section>
+<dialog id="image-dialog" aria-labelledby="edit-title"><div class="np-row"><h2 id="edit-title" data-i18n="settings.manage_title"></h2><button type="button" class="np-close" id="close-dialog" data-i18n-aria-label="settings.close">×</button></div><img id="edit-preview" class="np-dialog-preview" data-i18n-alt="settings.preview" alt="" hidden><label for="edit-name" data-i18n="settings.flow_name"></label><input id="edit-name" type="text" maxlength="80"><div class="np-dialog-actions"><button type="button" id="save-name" class="primary" data-i18n="settings.save_name"></button><button type="button" id="replace-image" data-i18n="settings.replace"></button></div><p class="np-note" data-i18n="settings.manage_note"></p><div class="np-dialog-actions"><button type="button" id="download-image" data-i18n="settings.download"></button><button type="button" class="danger" id="delete-image" data-i18n="settings.delete"></button></div><input type="file" id="replacement-file" accept="image/jpeg,image/png" hidden><div id="dialog-message" class="np-message" role="status"></div></dialog>
+</main><script src="settings.js"></script></body></html>

@@ -1,0 +1,5 @@
+node_modules/
+.homeybuild/
+artifacts/
+.DS_Store
+*.log
