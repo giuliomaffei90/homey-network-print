@@ -159,6 +159,20 @@
     "invalid_image_tag": "Wähle einen gültigen Bild-Tag aus.",
     "printer_not_found": "Drucker nicht gefunden. Füge ihn über Geräte hinzu.",
     "already_added": "Dieser Drucker wurde bereits hinzugefügt.",
-    "image_invalid_or_large": "Ungültiges oder zu großes Bild (max. 10 MB)."
+    "image_invalid_or_large": "Ungültiges oder zu großes Bild (max. 10 MB).",
+    "ink_unknown": "Der Drucker meldet diese Tinte nicht. Wähle sie in der Flow-Karte erneut aus."
+  },
+  "inks": {
+    "any": "Beliebige Tinte",
+    "black": "Schwarz",
+    "matte_black": "Mattschwarz",
+    "photo_black": "Fotoschwarz",
+    "cyan": "Cyan",
+    "magenta": "Magenta",
+    "yellow": "Gelb",
+    "grey": "Grau",
+    "light_cyan": "Hell-Cyan",
+    "light_magenta": "Hell-Magenta",
+    "red": "Rot"
   }
 }

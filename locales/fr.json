@@ -159,6 +159,20 @@
     "invalid_image_tag": "Sélectionnez un tag d’image valide.",
     "printer_not_found": "Imprimante introuvable. Ajoutez-la depuis Appareils.",
     "already_added": "Cette imprimante a déjà été ajoutée.",
-    "image_invalid_or_large": "Image non valide ou trop volumineuse (10 Mo max.)."
+    "image_invalid_or_large": "Image non valide ou trop volumineuse (10 Mo max.).",
+    "ink_unknown": "L’imprimante ne signale pas cette encre. Choisissez-la à nouveau dans la carte Flow."
+  },
+  "inks": {
+    "any": "N’importe quelle encre",
+    "black": "Noir",
+    "matte_black": "Noir mat",
+    "photo_black": "Noir photo",
+    "cyan": "Cyan",
+    "magenta": "Magenta",
+    "yellow": "Jaune",
+    "grey": "Gris",
+    "light_cyan": "Cyan clair",
+    "light_magenta": "Magenta clair",
+    "red": "Rouge"
   }
 }

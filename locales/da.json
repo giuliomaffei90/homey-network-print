@@ -159,6 +159,20 @@
     "invalid_image_tag": "Vælg et gyldigt billedtag.",
     "printer_not_found": "Printeren blev ikke fundet. Tilføj den fra Enheder.",
     "already_added": "Denne printer er allerede tilføjet.",
-    "image_invalid_or_large": "Ugyldigt eller for stort billede (maks. 10 MB)."
+    "image_invalid_or_large": "Ugyldigt eller for stort billede (maks. 10 MB).",
+    "ink_unknown": "Printeren rapporterer ikke dette blæk. Vælg det igen i Flow-kortet."
+  },
+  "inks": {
+    "any": "Et vilkårligt blæk",
+    "black": "Sort",
+    "matte_black": "Mat sort",
+    "photo_black": "Fotosort",
+    "cyan": "Cyan",
+    "magenta": "Magenta",
+    "yellow": "Gul",
+    "grey": "Grå",
+    "light_cyan": "Lys cyan",
+    "light_magenta": "Lys magenta",
+    "red": "Rød"
   }
 }

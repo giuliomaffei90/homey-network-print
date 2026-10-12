@@ -159,6 +159,20 @@
     "invalid_image_tag": "Select a valid image tag.",
     "printer_not_found": "Printer not found. Add it from Devices.",
     "already_added": "This printer has already been added.",
-    "image_invalid_or_large": "Invalid or too large image (max 10 MB)."
+    "image_invalid_or_large": "Invalid or too large image (max 10 MB).",
+    "ink_unknown": "This ink is not reported by the printer. Choose it again in the Flow card."
+  },
+  "inks": {
+    "any": "Any ink",
+    "black": "Black",
+    "matte_black": "Matte black",
+    "photo_black": "Photo black",
+    "cyan": "Cyan",
+    "magenta": "Magenta",
+    "yellow": "Yellow",
+    "grey": "Grey",
+    "light_cyan": "Light cyan",
+    "light_magenta": "Light magenta",
+    "red": "Red"
   }
 }

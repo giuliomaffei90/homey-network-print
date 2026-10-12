@@ -159,6 +159,20 @@
     "invalid_image_tag": "Wybierz prawidłowy tag obrazu.",
     "printer_not_found": "Nie znaleziono drukarki. Dodaj ją w sekcji Urządzenia.",
     "already_added": "Ta drukarka została już dodana.",
-    "image_invalid_or_large": "Nieprawidłowy lub zbyt duży obraz (maks. 10 MB)."
+    "image_invalid_or_large": "Nieprawidłowy lub zbyt duży obraz (maks. 10 MB).",
+    "ink_unknown": "Drukarka nie zgłasza tego atramentu. Wybierz go ponownie na karcie Flow."
+  },
+  "inks": {
+    "any": "Dowolny atrament",
+    "black": "Czarny",
+    "matte_black": "Czarny matowy",
+    "photo_black": "Czarny fotograficzny",
+    "cyan": "Cyjan",
+    "magenta": "Magenta",
+    "yellow": "Żółty",
+    "grey": "Szary",
+    "light_cyan": "Jasny cyjan",
+    "light_magenta": "Jasna magenta",
+    "red": "Czerwony"
   }
 }

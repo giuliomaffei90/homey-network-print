@@ -159,6 +159,20 @@
     "invalid_image_tag": "Seleziona un tag immagine valido.",
     "printer_not_found": "Stampante non trovata. Aggiungila dalla sezione Dispositivi.",
     "already_added": "Questa stampante è già aggiunta.",
-    "image_invalid_or_large": "Immagine non valida o troppo grande (massimo 10 MB)."
+    "image_invalid_or_large": "Immagine non valida o troppo grande (massimo 10 MB).",
+    "ink_unknown": "La stampante non segnala questo inchiostro. Sceglilo di nuovo nella scheda del Flow."
+  },
+  "inks": {
+    "any": "Qualsiasi inchiostro",
+    "black": "Nero",
+    "matte_black": "Nero opaco",
+    "photo_black": "Nero foto",
+    "cyan": "Ciano",
+    "magenta": "Magenta",
+    "yellow": "Giallo",
+    "grey": "Grigio",
+    "light_cyan": "Ciano chiaro",
+    "light_magenta": "Magenta chiaro",
+    "red": "Rosso"
   }
 }

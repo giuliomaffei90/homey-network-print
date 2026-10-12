@@ -1,5 +1,5 @@
 'use strict';
-const { t, setLanguage } = require('./lib/i18n');
+const { t, setLanguage, inkName } = require('./lib/i18n');
 const Homey = require('homey');
 const { inspect } = require('./lib/ipp');
 const { downloadImage } = require('./lib/download');
@@ -30,6 +30,18 @@ class NetworkPrintApp extends Homey.App {
       await device.printImage(async () => collect(await droptoken.getStream())); return true;
     });
     this.homey.flow.getConditionCard('printer_ready').registerRunListener(async ({ device }) => { const info = await device.refresh(); return info.accepting && info.state !== 5; });
+    const inkBelow = this.homey.flow.getConditionCard('ink_below');
+    inkBelow.registerArgumentAutocompleteListener('ink', async (query, { device }) => [{ id: '*', name: inkName({ code: 'any' }) },
+      ...(device?.inks || []).map(ink => ({ id: ink.id, name: inkName(ink), description: `${ink.level}%` }))]
+      .filter(item => item.name.toLocaleLowerCase().includes(query.toLocaleLowerCase())));
+    inkBelow.registerRunListener(async ({ device, ink, level }) => {
+      if (!device.inks) await device.refresh(); // Levels are refreshed every minute.
+      const inks = device.inks || [];
+      if (ink.id === '*') return inks.some(x => x.level < level);
+      const found = inks.find(x => x.id === ink.id);
+      if (!found) throw new Error(t('ink_unknown'));
+      return found.level < level;
+    });
     this.log('Network Print pronto.');
   }
   devices() { return this.homey.drivers.getDriver('printer').getDevices(); }

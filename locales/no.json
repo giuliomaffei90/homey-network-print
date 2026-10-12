@@ -159,6 +159,20 @@
     "invalid_image_tag": "Velg en gyldig bildetagg.",
     "printer_not_found": "Fant ikke skriveren. Legg den til fra Enheter.",
     "already_added": "Denne skriveren er allerede lagt til.",
-    "image_invalid_or_large": "Ugyldig eller for stort bilde (maks. 10 MB)."
+    "image_invalid_or_large": "Ugyldig eller for stort bilde (maks. 10 MB).",
+    "ink_unknown": "Skriveren rapporterer ikke dette blekket. Velg det på nytt i Flow-kortet."
+  },
+  "inks": {
+    "any": "Hvilket som helst blekk",
+    "black": "Svart",
+    "matte_black": "Mattsvart",
+    "photo_black": "Fotosvart",
+    "cyan": "Cyan",
+    "magenta": "Magenta",
+    "yellow": "Gul",
+    "grey": "Grå",
+    "light_cyan": "Lys cyan",
+    "light_magenta": "Lys magenta",
+    "red": "Rød"
   }
 }

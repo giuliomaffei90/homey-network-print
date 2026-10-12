@@ -159,6 +159,20 @@
     "invalid_image_tag": "Selecteer een geldige afbeeldingstag.",
     "printer_not_found": "Printer niet gevonden. Voeg hem toe via Apparaten.",
     "already_added": "Deze printer is al toegevoegd.",
-    "image_invalid_or_large": "Ongeldige of te grote afbeelding (max. 10 MB)."
+    "image_invalid_or_large": "Ongeldige of te grote afbeelding (max. 10 MB).",
+    "ink_unknown": "De printer meldt deze inkt niet. Kies hem opnieuw in de Flow-kaart."
+  },
+  "inks": {
+    "any": "Elke inkt",
+    "black": "Zwart",
+    "matte_black": "Mat zwart",
+    "photo_black": "Fotozwart",
+    "cyan": "Cyaan",
+    "magenta": "Magenta",
+    "yellow": "Geel",
+    "grey": "Grijs",
+    "light_cyan": "Lichtcyaan",
+    "light_magenta": "Lichtmagenta",
+    "red": "Rood"
   }
 }

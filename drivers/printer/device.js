@@ -1,5 +1,6 @@
 'use strict';
-const { t } = require('../../lib/i18n');
+const { t, inkName, inkTitles } = require('../../lib/i18n');
+const { inkLevels } = require('../../lib/inks');
 const Homey = require('homey');
 const { inspect, jobOptions, printJpeg } = require('../../lib/ipp');
 const { imageToJpeg, textLayout, renderPage } = require('../../lib/render');
@@ -17,7 +18,23 @@ class PrinterDevice extends Homey.Device {
     await this.setAvailable();
     const status = info.state === 4 ? 'printing' : info.state === 5 || !info.accepting ? 'stopped' : 'ready';
     await this.setCapabilityValue('printer_status', status);
+    await this.updateInks(info.attributes).catch(err => this.error('Ink levels:', err));
     return info;
+  }
+  async updateInks(attributes) {
+    this.inks = inkLevels(attributes);
+    const wasLow = this.getStoreValue('inksLow') || {}, isLow = {};
+    for (const ink of this.inks) {
+      const id = `ink_level.${ink.id}`;
+      if (!this.hasCapability(id)) { await this.addCapability(id); await this.setCapabilityOptions(id, { title: inkTitles(ink) }); }
+      const previous = this.getCapabilityValue(id), tokens = { ink: inkName(ink), level: ink.level };
+      await this.setCapabilityValue(id, ink.level);
+      if (previous !== null && previous !== ink.level) await this.homey.flow.getDeviceTriggerCard('ink_changed').trigger(this, tokens);
+      // Fire once per crossing; the state survives restarts so a low tank is not reported every minute.
+      isLow[ink.id] = ink.level <= ink.low;
+      if (isLow[ink.id] && !wasLow[ink.id]) await this.homey.flow.getDeviceTriggerCard('ink_low').trigger(this, tokens);
+    }
+    if (JSON.stringify(isLow) !== JSON.stringify(wasLow)) await this.setStoreValue('inksLow', isLow);
   }
   async onSettings({ newSettings }) { await inspect(newSettings.uri, this.connection(newSettings)); }
   async onDeleted() { if (this.timer) this.homey.clearInterval(this.timer); }

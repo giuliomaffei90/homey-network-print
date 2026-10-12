@@ -159,6 +159,20 @@
     "invalid_image_tag": "Välj en giltig bildtagg.",
     "printer_not_found": "Skrivaren hittades inte. Lägg till den via Enheter.",
     "already_added": "Den här skrivaren har redan lagts till.",
-    "image_invalid_or_large": "Ogiltig eller för stor bild (högst 10 MB)."
+    "image_invalid_or_large": "Ogiltig eller för stor bild (högst 10 MB).",
+    "ink_unknown": "Skrivaren rapporterar inte det här bläcket. Välj det igen i Flow-kortet."
+  },
+  "inks": {
+    "any": "Valfritt bläck",
+    "black": "Svart",
+    "matte_black": "Mattsvart",
+    "photo_black": "Fotosvart",
+    "cyan": "Cyan",
+    "magenta": "Magenta",
+    "yellow": "Gul",
+    "grey": "Grå",
+    "light_cyan": "Ljus cyan",
+    "light_magenta": "Ljus magenta",
+    "red": "Röd"
   }
 }

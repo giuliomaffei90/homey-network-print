@@ -159,6 +159,20 @@
     "invalid_image_tag": "올바른 이미지 태그를 선택하세요.",
     "printer_not_found": "프린터를 찾을 수 없어요. 기기에서 추가하세요.",
     "already_added": "이미 추가된 프린터예요.",
-    "image_invalid_or_large": "이미지가 올바르지 않거나 너무 커요(최대 10 MB)."
+    "image_invalid_or_large": "이미지가 올바르지 않거나 너무 커요(최대 10 MB).",
+    "ink_unknown": "프린터가 이 잉크를 보고하지 않아요. Flow 카드에서 다시 선택하세요."
+  },
+  "inks": {
+    "any": "모든 잉크",
+    "black": "검정",
+    "matte_black": "매트 검정",
+    "photo_black": "포토 검정",
+    "cyan": "시안",
+    "magenta": "마젠타",
+    "yellow": "노랑",
+    "grey": "회색",
+    "light_cyan": "라이트 시안",
+    "light_magenta": "라이트 마젠타",
+    "red": "빨강"
   }
 }

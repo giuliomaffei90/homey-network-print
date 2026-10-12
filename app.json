@@ -1,6 +1,6 @@
 {
   "id": "it.giuliomaffei.networkprint",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "sdk": 3,
   "compatibility": ">=12.1.0",
   "platforms": [
@@ -326,6 +326,296 @@
             "filter": "driver_id=printer"
           }
         ]
+      },
+      {
+        "id": "ink_below",
+        "title": {
+          "en": "Ink level is below…",
+          "it": "Il livello dell’inchiostro è sotto…",
+          "nl": "Inktniveau is lager dan…",
+          "de": "Tintenfüllstand liegt unter…",
+          "fr": "Le niveau d’encre est inférieur à…",
+          "sv": "Bläcknivån är under…",
+          "no": "Blekknivået er under…",
+          "es": "El nivel de tinta está por debajo de…",
+          "da": "Blækniveauet er under…",
+          "ru": "Уровень чернил ниже…",
+          "pl": "Poziom atramentu jest poniżej…",
+          "ko": "잉크 잔량이 … 미만",
+          "ar": "مستوى الحبر أقل من…"
+        },
+        "titleFormatted": {
+          "en": "[[ink]] is !{{below|not below}} [[level]]%",
+          "it": "[[ink]] !{{è|non è}} sotto il [[level]]%",
+          "nl": "[[ink]] is !{{lager|niet lager}} dan [[level]]%",
+          "de": "[[ink]] liegt !{{unter|nicht unter}} [[level]]%",
+          "fr": "[[ink]] !{{est|n’est pas}} inférieure à [[level]]%",
+          "sv": "[[ink]] är !{{under|inte under}} [[level]]%",
+          "no": "[[ink]] er !{{under|ikke under}} [[level]]%",
+          "es": "[[ink]] !{{está|no está}} por debajo del [[level]]%",
+          "da": "[[ink]] er !{{under|ikke under}} [[level]]%",
+          "ru": "[[ink]] !{{ниже|не ниже}} [[level]]%",
+          "pl": "[[ink]] !{{jest|nie jest}} poniżej [[level]]%",
+          "ko": "[[ink]] 잔량이 [[level]]% !{{미만이에요|미만이 아니에요}}",
+          "ar": "[[ink]] !{{أقل|ليس أقل}} من [[level]]%"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=printer"
+          },
+          {
+            "type": "autocomplete",
+            "name": "ink",
+            "title": {
+              "en": "Ink",
+              "it": "Inchiostro",
+              "nl": "Inkt",
+              "de": "Tinte",
+              "fr": "Encre",
+              "sv": "Bläck",
+              "no": "Blekk",
+              "es": "Tinta",
+              "da": "Blæk",
+              "ru": "Чернила",
+              "pl": "Atrament",
+              "ko": "잉크",
+              "ar": "الحبر"
+            },
+            "placeholder": {
+              "en": "Choose an ink",
+              "it": "Scegli un inchiostro",
+              "nl": "Kies een inkt",
+              "de": "Tinte auswählen",
+              "fr": "Choisissez une encre",
+              "sv": "Välj ett bläck",
+              "no": "Velg et blekk",
+              "es": "Elige una tinta",
+              "da": "Vælg et blæk",
+              "ru": "Выберите чернила",
+              "pl": "Wybierz atrament",
+              "ko": "잉크 선택",
+              "ar": "اختر حبرًا"
+            }
+          },
+          {
+            "type": "number",
+            "name": "level",
+            "title": {
+              "en": "Level (%)",
+              "it": "Livello (%)",
+              "nl": "Niveau (%)",
+              "de": "Füllstand (%)",
+              "fr": "Niveau (%)",
+              "sv": "Nivå (%)",
+              "no": "Nivå (%)",
+              "es": "Nivel (%)",
+              "da": "Niveau (%)",
+              "ru": "Уровень (%)",
+              "pl": "Poziom (%)",
+              "ko": "잔량 (%)",
+              "ar": "المستوى (%)"
+            },
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "placeholder": {
+              "en": "15",
+              "it": "15",
+              "nl": "15",
+              "de": "15",
+              "fr": "15",
+              "sv": "15",
+              "no": "15",
+              "es": "15",
+              "da": "15",
+              "ru": "15",
+              "pl": "15",
+              "ko": "15",
+              "ar": "15"
+            }
+          }
+        ]
+      }
+    ],
+    "triggers": [
+      {
+        "id": "ink_low",
+        "title": {
+          "en": "An ink is running low",
+          "it": "Un inchiostro sta per finire",
+          "nl": "Een inkt raakt op",
+          "de": "Eine Tinte geht zur Neige",
+          "fr": "Une encre est presque vide",
+          "sv": "Ett bläck håller på att ta slut",
+          "no": "Et blekk er i ferd med å gå tom",
+          "es": "Una tinta se está agotando",
+          "da": "Et blæk er ved at løbe tør",
+          "ru": "Чернила заканчиваются",
+          "pl": "Kończy się atrament",
+          "ko": "잉크가 부족해요",
+          "ar": "الحبر على وشك النفاد"
+        },
+        "hint": {
+          "en": "Runs once per ink when it drops to the low level reported by the printer (usually 15%).",
+          "it": "Si attiva una volta per inchiostro quando scende alla soglia segnalata dalla stampante (di solito 15%).",
+          "nl": "Wordt één keer per inkt uitgevoerd wanneer die het lage niveau van de printer bereikt (meestal 15%).",
+          "de": "Wird pro Tinte einmal ausgelöst, wenn sie den vom Drucker gemeldeten niedrigen Füllstand erreicht (meist 15%).",
+          "fr": "Se déclenche une fois par encre lorsqu’elle atteint le niveau bas signalé par l’imprimante (généralement 15%).",
+          "sv": "Körs en gång per bläck när det når den låga nivå som skrivaren rapporterar (oftast 15%).",
+          "no": "Kjøres én gang per blekk når det når det lave nivået skriveren rapporterer (vanligvis 15%).",
+          "es": "Se ejecuta una vez por tinta cuando baja al nivel bajo que indica la impresora (normalmente 15%).",
+          "da": "Kører én gang pr. blæk, når det når det lave niveau, som printeren rapporterer (normalt 15%).",
+          "ru": "Срабатывает один раз для каждого цвета, когда уровень падает до низкого порога принтера (обычно 15%).",
+          "pl": "Uruchamia się raz dla każdego atramentu, gdy spadnie do niskiego poziomu zgłaszanego przez drukarkę (zwykle 15%).",
+          "ko": "잉크마다 프린터가 알려주는 부족 수준(보통 15%)에 도달하면 한 번 실행돼요.",
+          "ar": "يعمل مرة واحدة لكل حبر عندما يصل إلى المستوى المنخفض الذي تُبلغ عنه الطابعة (عادةً 15%)."
+        },
+        "tokens": [
+          {
+            "name": "ink",
+            "type": "string",
+            "title": {
+              "en": "Ink",
+              "it": "Inchiostro",
+              "nl": "Inkt",
+              "de": "Tinte",
+              "fr": "Encre",
+              "sv": "Bläck",
+              "no": "Blekk",
+              "es": "Tinta",
+              "da": "Blæk",
+              "ru": "Чернила",
+              "pl": "Atrament",
+              "ko": "잉크",
+              "ar": "الحبر"
+            },
+            "example": {
+              "en": "Cyan",
+              "it": "Ciano",
+              "nl": "Cyaan",
+              "de": "Cyan",
+              "fr": "Cyan",
+              "sv": "Cyan",
+              "no": "Cyan",
+              "es": "Cian",
+              "da": "Cyan",
+              "ru": "Голубой",
+              "pl": "Cyjan",
+              "ko": "시안",
+              "ar": "سماوي"
+            }
+          },
+          {
+            "name": "level",
+            "type": "number",
+            "title": {
+              "en": "Level (%)",
+              "it": "Livello (%)",
+              "nl": "Niveau (%)",
+              "de": "Füllstand (%)",
+              "fr": "Niveau (%)",
+              "sv": "Nivå (%)",
+              "no": "Nivå (%)",
+              "es": "Nivel (%)",
+              "da": "Niveau (%)",
+              "ru": "Уровень (%)",
+              "pl": "Poziom (%)",
+              "ko": "잔량 (%)",
+              "ar": "المستوى (%)"
+            },
+            "example": 14
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=printer"
+          }
+        ]
+      },
+      {
+        "id": "ink_changed",
+        "title": {
+          "en": "An ink level changed",
+          "it": "Il livello di un inchiostro è cambiato",
+          "nl": "Een inktniveau is gewijzigd",
+          "de": "Ein Tintenfüllstand hat sich geändert",
+          "fr": "Un niveau d’encre a changé",
+          "sv": "En bläcknivå har ändrats",
+          "no": "Et blekknivå er endret",
+          "es": "Ha cambiado el nivel de una tinta",
+          "da": "Et blækniveau er ændret",
+          "ru": "Уровень чернил изменился",
+          "pl": "Zmienił się poziom atramentu",
+          "ko": "잉크 잔량이 바뀌었어요",
+          "ar": "تغيّر مستوى أحد الأحبار"
+        },
+        "tokens": [
+          {
+            "name": "ink",
+            "type": "string",
+            "title": {
+              "en": "Ink",
+              "it": "Inchiostro",
+              "nl": "Inkt",
+              "de": "Tinte",
+              "fr": "Encre",
+              "sv": "Bläck",
+              "no": "Blekk",
+              "es": "Tinta",
+              "da": "Blæk",
+              "ru": "Чернила",
+              "pl": "Atrament",
+              "ko": "잉크",
+              "ar": "الحبر"
+            },
+            "example": {
+              "en": "Cyan",
+              "it": "Ciano",
+              "nl": "Cyaan",
+              "de": "Cyan",
+              "fr": "Cyan",
+              "sv": "Cyan",
+              "no": "Cyan",
+              "es": "Cian",
+              "da": "Cyan",
+              "ru": "Голубой",
+              "pl": "Cyjan",
+              "ko": "시안",
+              "ar": "سماوي"
+            }
+          },
+          {
+            "name": "level",
+            "type": "number",
+            "title": {
+              "en": "Level (%)",
+              "it": "Livello (%)",
+              "nl": "Niveau (%)",
+              "de": "Füllstand (%)",
+              "fr": "Niveau (%)",
+              "sv": "Nivå (%)",
+              "no": "Nivå (%)",
+              "es": "Nivel (%)",
+              "da": "Niveau (%)",
+              "ru": "Уровень (%)",
+              "pl": "Poziom (%)",
+              "ko": "잔량 (%)",
+              "ar": "المستوى (%)"
+            },
+            "example": 14
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=printer"
+          }
+        ]
       }
     ]
   },
@@ -406,6 +696,35 @@
           }
         }
       ]
+    },
+    "ink_level": {
+      "type": "number",
+      "title": {
+        "en": "Ink level",
+        "it": "Livello inchiostro",
+        "nl": "Inktniveau",
+        "de": "Tintenfüllstand",
+        "fr": "Niveau d’encre",
+        "sv": "Bläcknivå",
+        "no": "Blekknivå",
+        "es": "Nivel de tinta",
+        "da": "Blækniveau",
+        "ru": "Уровень чернил",
+        "pl": "Poziom atramentu",
+        "ko": "잉크 잔량",
+        "ar": "مستوى الحبر"
+      },
+      "units": {
+        "en": "%"
+      },
+      "decimals": 0,
+      "min": 0,
+      "max": 100,
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "insights": true,
+      "icon": "/assets/ink.svg"
     }
   },
   "discovery": {

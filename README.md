@@ -22,6 +22,7 @@ No NAS, CUPS server, computer or cloud service is needed: Homey talks to the pri
 - **Print now**: a tab in the app settings to print a text, a JPEG/PNG file or an image URL without a Flow.
 - **Per-printer settings**: paper size (A4, A3, A5, Letter, 10 × 15 cm), colour, image scaling (fit or fill) and text size (8–36 pt), checked against what the printer declares before each job.
 - **Printer status**: a *Printer status* sensor (Ready, Printing, Check printer), refreshed every minute.
+- **Ink levels**: one *Ink level* sensor per tank, named after the colour the printer reports (for example Matte black, Photo black, Cyan), with Insights history. Flow cards: *An ink is running low* (once per ink, at the low level the printer reports, usually 15%), *An ink level changed*, both with *Ink* and *Level (%)* tags, and the condition *Ink level is below…* for one ink or any ink.
 - **13 languages**: English, Dutch, German, French, Italian, Swedish, Norwegian, Spanish, Danish, Russian, Polish, Korean and Arabic (right-to-left) for Flow cards, settings, the pairing screen and error messages. Homey picks the language it is set to.
 
 ## Requirements
@@ -65,8 +66,9 @@ npm run probe -- ipp://192.168.1.100/ipp/print --allow-self-signed
 3. **Storage**: [lib/library.js](lib/library.js) converts the image to JPEG, encrypts it with AES-256-GCM (key kept in the app settings) and writes it atomically to `/userdata/print-library`, with a stable ID that Flows store.
 4. **Flow run**: [app.js](app.js) resolves the library ID, the URL or the image tag to bytes and calls `printImage` on the device ([drivers/printer/device.js](drivers/printer/device.js)).
 5. **Rendering**: [lib/render.js](lib/render.js) checks size and format, converts PNG to JPEG on a white background, and for text builds pages at 150 dpi with 12 mm margins.
-6. **Printing**: the device refreshes the printer's attributes, checks the chosen paper, colour and scaling against them, then sends one `Print-Job` per page. Only one job at a time is sent to each printer.
-7. **Languages**: every string lives in [locales/](locales/). The pages use `Homey.__()`, and the backend uses [lib/i18n.js](lib/i18n.js) with the language Homey reports.
+6. **Ink levels**: on every refresh the device turns the IPP `marker-*` attributes into percentages with [lib/inks.js](lib/inks.js), adds an `ink_level.<name>` capability for each new tank and fires the Flow triggers. Which tanks are already low is kept in the device store, so *An ink is running low* does not repeat after a restart.
+7. **Printing**: the device refreshes the printer's attributes, checks the chosen paper, colour and scaling against them, then sends one `Print-Job` per page. Only one job at a time is sent to each printer.
+8. **Languages**: every string lives in [locales/](locales/). The pages use `Homey.__()`, and the backend uses [lib/i18n.js](lib/i18n.js) with the language Homey reports.
 
 ## Known limitations
 
@@ -77,6 +79,7 @@ npm run probe -- ipp://192.168.1.100/ipp/print --allow-self-signed
 - A sent page means the printer accepted the job, not that a sheet came out. Errors and timeouts after sending are reported and never retried automatically, to avoid duplicate prints; check the printer queue before trying again.
 - If the printer's IP address changes, update it in the device settings. A DHCP reservation on the router avoids this.
 - The library lives in the app's storage: uninstalling the app or resetting Homey deletes it. Export a backup first.
+- Ink levels are what the printer reports. Refillable tank printers (Epson EcoTank and similar) estimate them from the ink used since the last refill confirmed on the printer, so they are wrong if a refill is not confirmed there.
 - *Fill page* may crop the edges and does not enable borderless printing by itself.
 
 ## Credits

@@ -159,6 +159,20 @@
     "invalid_image_tag": "Selecciona un tag de imagen válido.",
     "printer_not_found": "Impresora no encontrada. Añádela desde Dispositivos.",
     "already_added": "Esta impresora ya se ha añadido.",
-    "image_invalid_or_large": "Imagen no válida o demasiado grande (máx. 10 MB)."
+    "image_invalid_or_large": "Imagen no válida o demasiado grande (máx. 10 MB).",
+    "ink_unknown": "La impresora no informa de esta tinta. Vuelve a elegirla en la tarjeta del Flow."
+  },
+  "inks": {
+    "any": "Cualquier tinta",
+    "black": "Negro",
+    "matte_black": "Negro mate",
+    "photo_black": "Negro fotográfico",
+    "cyan": "Cian",
+    "magenta": "Magenta",
+    "yellow": "Amarillo",
+    "grey": "Gris",
+    "light_cyan": "Cian claro",
+    "light_magenta": "Magenta claro",
+    "red": "Rojo"
   }
 }
