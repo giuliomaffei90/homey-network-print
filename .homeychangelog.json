@@ -1,0 +1,5 @@
+{
+  "1.3.0": {
+    "en": "First release: print text and JPEG/PNG images to IPP network printers from Flows, with ink level sensors."
+  }
+}
