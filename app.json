@@ -43,6 +43,11 @@
   "author": {
     "name": "Giulio Maffei"
   },
+  "support": "https://github.com/giuliomaffei90/homey-network-print/issues",
+  "bugs": {
+    "url": "https://github.com/giuliomaffei90/homey-network-print/issues"
+  },
+  "source": "https://github.com/giuliomaffei90/homey-network-print",
   "permissions": [],
   "images": {
     "small": "/assets/images/small.png",
