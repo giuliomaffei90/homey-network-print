@@ -1,0 +1,21 @@
+# Mirrors every push (including merges done on github.com) to the private GitLab copy.
+# Needs the repository secret GITLAB_TOKEN: a GitLab token with write_repository scope.
+name: Mirror to GitLab
+on: [push, delete]
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - env:
+          TOKEN: ${{ secrets.GITLAB_TOKEN }}
+        run: |
+          [ -n "$TOKEN" ] || { echo "GITLAB_TOKEN not set, skipping"; exit 0; }
+          url="https://oauth2:$TOKEN@gitlab.com/giuliomaffei90/homey-network-print.git"
+          if [ "${{ github.event_name }}" = delete ]; then
+            git push "$url" ":refs/${{ github.event.ref_type == 'tag' && 'tags' || 'heads' }}/${{ github.event.ref }}"
+          else
+            git push "$url" "$GITHUB_SHA:$GITHUB_REF"
+          fi

@@ -41,7 +41,7 @@ The only runtime dependency is `pureimage` (with `jpeg-js` and `pngjs`), used to
 ## Installation
 
 ```bash
-git clone https://gitlab.com/giuliomaffei90/homey-network-print.git
+git clone https://github.com/giuliomaffei90/homey-network-print.git
 cd homey-network-print
 npm ci
 npm test
